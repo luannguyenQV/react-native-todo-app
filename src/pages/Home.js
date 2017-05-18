@@ -1,113 +1,29 @@
 import React, { Component } from 'react'
 import {
-  View,
   Text,
-  Image,
-  TextInput,
-  Platform,
-  Clipboard,
-  ScrollView
+  View
 } from 'react-native'
+import ScrollableTabView, { DefaultTabBar } from 'react-native-scrollable-tab-view'
 import { Col, Row, Grid } from 'react-native-easy-grid'
 
-class Home extends Component {
-  constructor (props) {
-    super(props)
-  }
-
-  render () {
+export default class Home extends Component {
+  render() {
     return (
-      <ScrollView>
-        <View style={{ flexDirection: 'row', justifyContent: 'center', marginBottom: 30, borderWidth: 3, borderColor: 'black' }}>
-          <Text style={{ fontSize: 30 }}> TestResponsive </Text>
-        </View>
-        <View style={{ marginBottom: 30, borderWidth: 3, borderColor: 'black' }}>
-          <View>
-            <Text style={{ fontSize: 20 }}> No Responsive </Text>
-          </View>
-          <View style={{ justifyContent: 'center' }}>
-            <Image source={require('../assets/react.png')} />
-          </View>
-        </View>
-        <View style={{ marginBottom: 30, borderWidth: 3, borderColor: 'black' }}>
-          <View>
-            <Text style={{ fontSize: 20 }}> Stretch </Text>
-          </View>
-          <View style={{
-            flex: 1,
-            flexDirection: 'row',
-            justifyContent: 'space-around',
-            alignItems: 'center'
-          }}>
-            <Image
-              style={{
-                flex: 1,
-                alignSelf: 'center'
-              }}
-              resizeMode='stretch'
-              source={require('../assets/react.png')} />
-          </View>
-        </View>
-        <View style={{ marginBottom: 30, borderWidth: 3, borderColor: 'black' }}>
-          <View>
-            <Text style={{ fontSize: 20 }}> Contain </Text>
-          </View>
-          <View style={{
-            flex: 1,
-            flexDirection: 'row',
-            justifyContent: 'space-around',
-            alignItems: 'center'
-          }}>
-            <Image
-              style={{
-                flex: 1,
-                alignSelf: 'center'
-              }}
-              resizeMode='contain'
-              source={require('../assets/react.png')} />
-          </View>
-        </View>
-        <View style={{ marginBottom: 30, borderWidth: 3, borderColor: 'black' }}>
-          <View>
-            <Text style={{ fontSize: 20 }}> Cover </Text>
-          </View>
-          <View style={{
-            flex: 1,
-            flexDirection: 'row',
-            justifyContent: 'space-around',
-            alignItems: 'center'
-          }}>
-            <Image
-              style={{
-                flex: 1,
-                alignSelf: 'center'
-              }}
-              resizeMode='cover'
-              source={require('../assets/react.png')} />
-          </View>
-        </View>
-        <View style={{ marginBottom: 30, borderWidth: 3, borderColor: 'black' }}>
-          <View>
-            <Text style={{ fontSize: 20 }}> Center </Text>
-          </View>
-          <View style={{
-            flex: 1,
-            flexDirection: 'row',
-            justifyContent: 'space-around',
-            alignItems: 'center'
-          }}>
-            <Image
-              style={{
-                flex: 1,
-                alignSelf: 'center'
-              }}
-              resizeMode='center'
-              source={require('../assets/react.png')} />
-          </View>
-        </View>
-      </ScrollView>
+      <Grid>
+        <Col>
+          <ScrollableTabView
+            style={{ marginTop: 64 }}
+            renderTabBar={() => <DefaultTabBar />}
+          >
+            <Text tabLabel='Tab #1'>My</Text>
+            <Text tabLabel='Tab #2'>favorite</Text>
+            <Text tabLabel='Tab #3'>project</Text>
+          </ScrollableTabView>
+        </Col>
+        <Col>
+          <View><Text>Half</Text></View>
+        </Col>
+      </Grid>
     )
   }
 }
-
-export default Home

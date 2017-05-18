@@ -11,7 +11,7 @@ export default class TodoApp extends Component {
     return (
       <Router>
         <Scene key="root">
-          <Scene key="home" component={Home} title="Home Page" initial={true} />
+          <Scene key="home" component={Home} initial={true} />
           <Scene key="demo" component={Demo} title="Demo" />
         </Scene>
       </Router>
